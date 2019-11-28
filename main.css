@@ -1,3 +1,7 @@
+html {
+    font-size: 10px;
+}
+
 .results-img {
     width: 250px;
 }
@@ -5,3 +9,13 @@
 .result-item {
     list-style: none;
 }
+
+.selector {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.dropdown {
+    display: block;
+}
+

@@ -12,17 +12,47 @@
         <h1>Feed Me!</h1>
     </header>
     <section id="form">
-        <h2>This is where the form will go</h2>
+        <h2>Let's find you something to make tonight</h2>
         <form id="js-form">
-            <label for="cuisine">Cuisine</label>
-            <select class="cuisine" name="cuisine">
-                <option value="Italian">Italian</option>
-                <option value="Japanese">Japanese</option>
-                <option value="Indian">Indian</option>
-                <option value="American">American</option>
+            <legend>Choose your preferences</legend>
+           
+            <div class="selector">
+                <label for="cuisine">What type of cuisine would you like to eat?</label>
+                <select class="dropdown" name="cuisine" placeholder="Select one">
+                    <option value="Italian">Italian</option>
+                    <option value="Japanese">Japanese</option>
+                    <option value="Indian">Indian</option>
+                    <option value="American">American</option>
+                    <option value="">Surprise me!</option>
+                </select>
+            </div>
+            
+            <div class="selector">
+                <label for="Diet">Do you have any dietary restrictions?</label>
+                <select class="dropdown" name="cuisine" placeholder="Select one" multiple>
+                    <option value="gluten">Gluten free</option>
+                    <option value="ketogenic">Keto Diet</option>
+                    <option value="vegetarian">Vegetarian</option>
+                    <option value="vegan">Vegan</option>
+                    <option value="pescatarian">Pescatarian</option>
+                </select>
+            </div>
+
+            <div class="selector">
+            <label for="Intolerances">Do you have any Intolerances?</label>
+            <select class="dropdown" name="cuisine" placeholder="Select one" multiple>
+                <option value="dairy">Dairy</option>
+                <option value="peanut">Peanuts</option>
+                <option value="soy">Soy</option>
+                <option value="gluten">Gluten</option>
+                <option value="egg">Egg</option>
             </select>
+            </div>
+
+
             <input type="submit" value="Submit!">
         </form>
+        <p id="js-error-message" class="error-message"></p>
     </section>
     <section id="resuts" class="hidden">
         <ul id="results-list">
