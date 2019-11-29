@@ -2,14 +2,8 @@ html {
     font-size: 10px;
 }
 
-.results-img {
-    width: 250px;
-}
 
-.result-item {
-    list-style: none;
-}
-
+/* Form Elements */
 .selector {
     margin-top: 2rem;
     margin-bottom: 2rem;
@@ -18,4 +12,20 @@ html {
 .dropdown {
     display: block;
 }
+
+
+/* Results Section */
+.results-img {
+    width: 250px;
+}
+
+.result-item {
+    list-style: none;
+}
+
+.hidden {
+    display: none;
+  }
+
+
 
