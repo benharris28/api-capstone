@@ -4,12 +4,21 @@
 const apiKey = 'ad90dc536d4b4fa3b7870e7a862dffe7';
 const searchURL = 'https://api.spoonacular.com/recipes/search'
 
+
+function displayResults() {
+    console.log('displayResults ran');
+}
+
 // Takes recipe object and formats into proper string
 // What happens for multiple values in same parameter
 
-function formatRecipes() {
+
+function formatIntolerances(intolerances) {
     console.log('formatRecipes ran');
-  
+    const intolerancesParam = intolerances.map((int,i) => 
+        `intolerances=${intolerances[i]}`);
+        return intolerancesParam.join('&');
+        console.log(intolerancesParam);
 }
 
 // Puts parameters into object
@@ -18,15 +27,11 @@ function formatRecipes() {
 // Calls first fetch function to get random recipe response
 
 function getRecipes(cuisine, diet, intolerances) {
-    const params = {
-        q: query,
-        cuisine: cuisine,
-        diet: diet,
-        intolerances: intolerances
-    }
+    
 
-    const queryString = formatRecipes(params);
-    const url = searchURL + '?' + queryString;
+    const queryString = formatIntolerances(intolerances);
+    const aggregatedString = `?cuisine=${cuisine}&diet=${diet}` + queryString;
+    const url = searchURL + aggregatedString;
 
 
     fetch(url)
