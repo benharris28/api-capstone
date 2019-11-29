@@ -18,18 +18,18 @@
            
             <div class="selector">
                 <label for="cuisine">What type of cuisine would you like to eat?</label>
-                <select class="dropdown" name="cuisine" placeholder="Select one">
-                    <option value="Italian">Italian</option>
-                    <option value="Japanese">Japanese</option>
-                    <option value="Indian">Indian</option>
-                    <option value="American">American</option>
+                <select id="cuisine" class="dropdown" name="cuisine" placeholder="Select one">
+                    <option value="italian">Italian</option>
+                    <option value="japanese">Japanese</option>
+                    <option value="indian">Indian</option>
+                    <option value="american">American</option>
                     <option value="">Surprise me!</option>
                 </select>
             </div>
             
             <div class="selector">
                 <label for="Diet">Do you have any dietary restrictions?</label>
-                <select class="dropdown" name="cuisine" placeholder="Select one" multiple>
+                <select id="diet" class="dropdown" name="cuisine" placeholder="Select one">
                     <option value="gluten">Gluten free</option>
                     <option value="ketogenic">Keto Diet</option>
                     <option value="vegetarian">Vegetarian</option>
@@ -40,7 +40,7 @@
 
             <div class="selector">
             <label for="Intolerances">Do you have any Intolerances?</label>
-            <select class="dropdown" name="cuisine" placeholder="Select one" multiple>
+            <select id="intolerances" class="dropdown" name="cuisine" placeholder="Select one" multiple>
                 <option value="dairy">Dairy</option>
                 <option value="peanut">Peanuts</option>
                 <option value="soy">Soy</option>
@@ -61,7 +61,8 @@
 
         </ul>
     </section>
-  
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="main.js"></script>
     
 </body>
 </html>

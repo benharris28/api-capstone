@@ -4,9 +4,21 @@
 const apiKey = 'ad90dc536d4b4fa3b7870e7a862dffe7';
 const searchURL = 'https://api.spoonacular.com/recipes/search'
 
-
-function displayResults() {
+// Loop through results and append them to the UL in results section
+function displayRecipeOptions(responseJson) {
     console.log('displayResults ran');
+    $('#results-list').empty();
+    for (let i = 0; i < responseJson.length; i++) {
+        $('#results-list').append(
+            `<li class="result-item">
+           <img src="https://spoonacular.com/recipeImages/${responeJson.results[i].imageUrls}" class="results-img">
+            <p>${responseJson.results[i].title}</p>
+           <p>Prep time: ${responseJson.results[i].readyInMinutes}</p>
+           <button type = "button" id="recipe-instructions"> See this recipe </button>
+        </li>`
+        )
+    };
+    $('#results').removeClass('hidden');
 }
 
 // Takes recipe object and formats into proper string
@@ -30,8 +42,9 @@ function getRecipes(cuisine, diet, intolerances) {
     
 
     const queryString = formatIntolerances(intolerances);
-    const aggregatedString = `?cuisine=${cuisine}&diet=${diet}` + queryString;
-    const url = searchURL + aggregatedString;
+    const aggregatedString = `?cuisine=${cuisine}&diet=${diet}&` + queryString;
+    const url = searchURL + aggregatedString + `&number=3&apiKey=${apiKey}`;
+    console.log(url);
 
 
     fetch(url)
@@ -41,7 +54,7 @@ function getRecipes(cuisine, diet, intolerances) {
       }
       throw new Error(response.statusText);
     })
-    .then(responseJson => displayResults(responseJson))
+    .then(responseJson => displayRecipeOptions(responseJson))
     .catch(err => {
       $('#js-error-message').text(`Something went wrong: ${err.message}`);
     });
@@ -63,9 +76,11 @@ function getRecipeInstructions() {
 function watchForm() {
     console.log('watchform ran');
     $('form').submit(event => {
+        event.preventDefault();
         const cuisine = $('#cuisine').val();
         const diet = $('#diet').val();
         const intolerances = $('#intolerances').val();
+        getRecipes(cuisine, diet, intolerances);
     });
 }
 
