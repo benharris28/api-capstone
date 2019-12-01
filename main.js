@@ -12,9 +12,8 @@ function displayRecipeOptions(responseJson) {
     for (let i = 0; i < responseJson.results.length; i++) {
         $('#results-list').append(
             `<li class="result-item">
-           <img src="https://spoonacular.com/recipeImages/${responeJson.results[i].imageUrls}" class="results-img">
+           <img src="${responseJson.results[i].image}" class="results-img">
             <p>${responseJson.results[i].title}</p>
-           <p>Prep time: ${responseJson.results[i].readyInMinutes}</p>
            <button type = "button" id="recipe-instructions"> See this recipe </button>
         </li>`
         )
