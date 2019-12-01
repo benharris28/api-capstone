@@ -2,13 +2,14 @@
 // Global variables
 
 const apiKey = 'ad90dc536d4b4fa3b7870e7a862dffe7';
-const searchURL = 'https://api.spoonacular.com/recipes/search'
+const searchURL = 'https://api.spoonacular.com/recipes/complexSearch'
 
 // Loop through results and append them to the UL in results section
 function displayRecipeOptions(responseJson) {
-    console.log('displayResults ran');
+    console.log('displayRecipeOptions ran');
+    console.log(responseJson)
     $('#results-list').empty();
-    for (let i = 0; i < responseJson.length; i++) {
+    for (let i = 0; i < responseJson.results.length; i++) {
         $('#results-list').append(
             `<li class="result-item">
            <img src="https://spoonacular.com/recipeImages/${responeJson.results[i].imageUrls}" class="results-img">
@@ -42,6 +43,7 @@ function getRecipes(cuisine, diet, intolerances) {
     
 
     const queryString = formatIntolerances(intolerances);
+
     const aggregatedString = `?cuisine=${cuisine}&diet=${diet}&` + queryString;
     const url = searchURL + aggregatedString + `&number=3&apiKey=${apiKey}`;
     console.log(url);
@@ -58,6 +60,7 @@ function getRecipes(cuisine, diet, intolerances) {
     .catch(err => {
       $('#js-error-message').text(`Something went wrong: ${err.message}`);
     });
+    $('#results').removeClass('hidden');
 }
 
 function getRecipeInstructions() {
