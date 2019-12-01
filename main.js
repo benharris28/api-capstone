@@ -58,6 +58,7 @@ function getRecipes(cuisine, diet, intolerances) {
     })
     .then(responseJson => displayRecipeOptions(responseJson))
     .catch(err => {
+        console.log(err);
       $('#js-error-message').text(`Something went wrong: ${err.message}`);
     });
     $('#results').removeClass('hidden');
