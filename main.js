@@ -4,6 +4,27 @@
 const apiKey = 'ad90dc536d4b4fa3b7870e7a862dffe7';
 const searchURL = 'https://api.spoonacular.com/recipes/complexSearch'
 
+// Wait for click on "see this recipe"
+// Run new fetch function to recipe endpoint
+// Display recipe results in links
+
+function getRecipeInstructions(recipeId) {
+    console.log('got recipe');
+}
+
+function getItemIdfromElement(item) {
+    console.log('got id');
+}
+
+function watchRecipeClick() {
+    console.log('watchRecipeClick ran');
+    $('#results-list').on('click','.recipe-instructions',
+    event => {
+        console.log('button clicked');
+        const recipeId = getItemIdfromElement(event.currentTarget);
+        getRecipeInstructions(recipeId);
+    })
+}
 // Loop through results and append them to the UL in results section
 function displayRecipeOptions(responseJson) {
     console.log('displayRecipeOptions ran');
@@ -14,7 +35,7 @@ function displayRecipeOptions(responseJson) {
             `<li class="result-item">
            <img src="${responseJson.results[i].image}" class="results-img">
             <p>${responseJson.results[i].title}</p>
-           <button type = "button" id="recipe-instructions"> See this recipe </button>
+           <button type = "button" id="${responseJson.results[i].id}" class="recipe-instructions"> See this recipe </button>
         </li>`
         )
     };
