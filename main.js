@@ -121,19 +121,12 @@ function getRecipes(cuisine, diet, intolerances) {
     $('#results').removeClass('hidden');
 }
 
-function getRecipeInstructions() {
-    // Add event listener for click on desired recipe (move to the beginning - right when page loads)
-   // Second fetch (whole code block a second)
-   // Change name of displayResults and call separate function
-
-}
-
-// Event listener for desired recipe
-// On click ('ul') li etc
 
 
-// watch form or watch forms?
-// getRecipes
+// First event listener function that checks for form inputs
+// Pulls out form values
+// Calls getRecipes function which calls the recipes endpoint
+
 function watchForm() {
     console.log('watchform ran');
     $('form').submit(event => {
@@ -145,6 +138,7 @@ function watchForm() {
     });
 }
 
+// Event listeners to start app
 function makeRecipes() {
     watchForm();
     watchRecipeClick();
