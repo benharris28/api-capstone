@@ -4,6 +4,20 @@
 const apiKey = 'ad90dc536d4b4fa3b7870e7a862dffe7';
 const searchURL = 'https://api.spoonacular.com/recipes/complexSearch'
 
+
+
+ // Listen for click on "search again" button and reload form
+
+function searchAgain() {
+    $('#form').on('click', '#search-again', event => {
+        $('#results').toggleClass('hidden');
+        $('form').removeClass('hidden');
+
+
+
+    })
+}
+
 // Open new window with recipe link
 
 function displayDetailedRecipe(responseRecipe) {
@@ -12,7 +26,7 @@ function displayDetailedRecipe(responseRecipe) {
 
 }
 
-
+// Fetch detailed recipe instruction based on recipeId returned in previous responseJson
 function getRecipeInstructions(recipeId) {
     console.log('got recipe');
     const recipeDetailURL = `https://api.spoonacular.com/recipes/${recipeId}/information?apiKey=ad90dc536d4b4fa3b7870e7a862dffe7`;
@@ -37,14 +51,14 @@ function getRecipeInstructions(recipeId) {
     
 
 
-// get item ID
+// get recipe id from the chosen result
 function getItemIdfromElement(item) {
     console.log('got id');
     return $(item).closest('li').data('item-id');
     console.log(item);
 }
 
-
+// listen for click on chosen recipe and pass result ID to new fetch function
 function watchRecipeClick() {
     console.log('watchRecipeClick ran');
     $('#results-list').on('click','.recipe-instructions',
@@ -57,7 +71,7 @@ function watchRecipeClick() {
 }
 
 // Loop through results and append them to the UL in results section
-// fetch URLs for recipes in separate endpoint
+
 
 function displayRecipeOptions(responseJson) {
     console.log('displayRecipeOptions ran');
@@ -72,15 +86,15 @@ function displayRecipeOptions(responseJson) {
         </li>`
         )
     };
+    
     $('#results').removeClass('hidden');
 
-    // Fetch URLs
+   
 
 
 }
 
 // Takes recipe object and formats into proper string
-// What happens for multiple values in same parameter
 
 
 function formatIntolerances(intolerances) {
@@ -119,6 +133,8 @@ function getRecipes(cuisine, diet, intolerances) {
       $('#js-error-message').text(`Something went wrong: ${err.message}`);
     });
     $('#results').removeClass('hidden');
+    $('#form').toggleClass('hidden');
+    
 }
 
 
@@ -142,6 +158,8 @@ function watchForm() {
 function makeRecipes() {
     watchForm();
     watchRecipeClick();
+    searchAgain();
+    
 }
 
 $(makeRecipes);
