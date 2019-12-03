@@ -1,9 +1,49 @@
+* {
+    box-sizing: border-box;  
+  }
+
+
+  body {
+    padding-left: 1.8rem;
+   background-color: #298eea;
+    color: #fff;
+  }
+
 html {
     font-size: 10px;
+    color: black;
 }
 
+header {
+    text-align: center;
+    color: white;
+    height: 3rem;
+    width: 100%;
+}
 
 /* Form Elements */
+#form {
+    width: 400px;
+    background-color: white;
+    padding: 4rem;
+    border-radius: 3px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+.form-block h2 {
+    color: black;
+    text-align: center;
+}
+
+.form-block legend {
+    width: 100%;
+    line-height: 38px;
+    font-size: 35px;
+    color: grey;
+    text-align: center;
+
+}
 .selector {
     margin-top: 2rem;
     margin-bottom: 2rem;
