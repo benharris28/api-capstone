@@ -9,9 +9,10 @@ const searchURL = 'https://api.spoonacular.com/recipes/complexSearch'
  // Listen for click on "search again" button and reload form
 
 function searchAgain() {
-    $('#results').on('click', '#search-again', event => {
+    $('#new-search').on('click', '#search-again', event => {
         $('#results').toggleClass('hidden');
         $('#form').removeClass('hidden');
+        $('#new-search').toggleClass('hidden');
 
 
 
@@ -90,6 +91,7 @@ function displayRecipeOptions(responseJson) {
     };
     
     $('#results').removeClass('hidden');
+    $('#new-search').removeClass('hidden');
 
    
 
