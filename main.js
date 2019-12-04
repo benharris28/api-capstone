@@ -129,13 +129,18 @@ function getRecipes(cuisine, diet, intolerances) {
       }
       throw new Error(response.statusText);
     })
-    .then(responseJson => displayRecipeOptions(responseJson))
+    .then(responseJson => {
+        displayRecipeOptions(responseJson);
+        $('#loader').toggleClass('hidden');
+        $('#results').removeClass('hidden');
+
+    })
     .catch(err => {
         console.log(err);
       $('#js-error-message').text(`Something went wrong: ${err.message}`);
     });
-    $('#results').removeClass('hidden');
     $('#form').toggleClass('hidden');
+    $('#loader').removeClass('hidden');
     
 }
 
