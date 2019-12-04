@@ -80,8 +80,10 @@ function displayRecipeOptions(responseJson) {
     for (let i = 0; i < responseJson.results.length; i++) {
         $('#results-list').append(
             `<li class="result-item" data-item-id="${responseJson.results[i].id}">
-           <img src="${responseJson.results[i].image}" class="results-img">
-            <p>${responseJson.results[i].title}</p>
+            <h3>Recipe ${i + 1}</h3>
+            <img src="${responseJson.results[i].image}" class="results-img">
+           
+           <p>${responseJson.results[i].title}</p>
            <button type = "button" id="${responseJson.results[i].id}" class="recipe-instructions"> See this recipe </button>
         </li>`
         )
