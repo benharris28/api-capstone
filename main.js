@@ -2,7 +2,7 @@
 // Global variables
 
 const apiKey = 'ad90dc536d4b4fa3b7870e7a862dffe7';
-const searchURL = 'https://api.spoonacular.com/recipes/complexSearch'
+const searchURL = 'https://api.spoonacular.com/recipes/complexSearch';
 
 
 
@@ -118,8 +118,9 @@ function getRecipes(cuisine, diet, intolerances) {
     
 
     const queryString = formatIntolerances(intolerances);
+    let offsetTwo = Math.floor(Math.random() * 20);
 
-    const aggregatedString = `?cuisine=${cuisine}&diet=${diet}&` + queryString;
+    const aggregatedString = `?cuisine=${cuisine}&diet=${diet}&type=main-course&offset=${offsetTwo}&` + queryString;
     const url = searchURL + aggregatedString + `&number=3&apiKey=${apiKey}`;
     console.log(url);
 

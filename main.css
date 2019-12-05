@@ -66,6 +66,15 @@ header {
 
 }
 
+#form h3, #results h3 {
+  width: 100%;
+  line-height: 2.5rem;
+  font-size: 1.8rem;
+  color: black;
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
 .form-block label {
     display: block;
     margin-top: 1rem;
