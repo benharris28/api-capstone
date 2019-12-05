@@ -25,10 +25,16 @@ This app uses HTML, CSS, and jQuery. The initial form is built with HTML and sty
 
 Home Screen
 
+<img src="https://raw.githubusercontent.com/benharris28/feed-me/master/Screenshots/feed-me-home-screen.jpg">
 
 
+Results Screen
 
+<img src="https://raw.githubusercontent.com/benharris28/feed-me/master/Screenshots/feed-me-results-page.jpg">
 
+Search Again Screen
+
+<img src="https://raw.githubusercontent.com/benharris28/feed-me/master/Screenshots/feed-me-search-again.jpg">
 
 
 
