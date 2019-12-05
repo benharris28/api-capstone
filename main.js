@@ -159,6 +159,7 @@ function watchForm() {
         const cuisine = $('#cuisine').val();
         const diet = $('#diet').val();
         const intolerances = $('#intolerances').val();
+        console.log(intolerances);
         getRecipes(cuisine, diet, intolerances);
     });
 }
