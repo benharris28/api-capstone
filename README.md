@@ -3,7 +3,7 @@
 Feed Me Recipe Finder
 
 # Link to live page
-You can find the <a href="https://benharris28.github.io/feed-me/">Live Page</a> here
+You can find the <a href="https://benharris28.github.io/feed-me/">Live Page</a> here. The Github repository can be <a href="https://github.com/benharris28/feed-me">found here</a>.
 
 # What does this app do?
 Recipes are tough to find. There are millions of them out there! With Feed Me, all you need to do is tell us about a few of your preferences and we'll find you three recipes that we think you'll like. If you like what you see, you can click the recipe and have the full recipe instructions displayed. It's that easy! Don't like what you see? You can search again!
