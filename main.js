@@ -22,16 +22,16 @@ function searchAgain() {
 // Open new window with recipe link
 
 function displayDetailedRecipe(responseRecipe) {
-    console.log('recipe displayed');
+
     window.open(`${responseRecipe.sourceUrl}`,"_blank");
 
 }
 
 // Fetch detailed recipe instruction based on recipeId returned in previous responseJson
 function getRecipeInstructions(recipeId) {
-    console.log('got recipe');
+    
     const recipeDetailURL = `https://api.spoonacular.com/recipes/${recipeId}/information?apiKey=ad90dc536d4b4fa3b7870e7a862dffe7`;
-    console.log(recipeDetailURL);
+  
     
     fetch(recipeDetailURL)
         .then (response => {
@@ -42,7 +42,7 @@ function getRecipeInstructions(recipeId) {
         })
         .then (responseRecipe => displayDetailedRecipe(responseRecipe))
         .catch(err => {
-            console.log(err);
+          
             $('#js-error-message').text(`Something went wrong: ${err.message}`);
             });
         }
@@ -54,20 +54,20 @@ function getRecipeInstructions(recipeId) {
 
 // get recipe id from the chosen result
 function getItemIdfromElement(item) {
-    console.log('got id');
+   
     return $(item).closest('li').data('item-id');
-    console.log(item);
+ 
 }
 
 // listen for click on chosen recipe and pass result ID to new fetch function
 function watchRecipeClick() {
-    console.log('watchRecipeClick ran');
+    
     $('#results-list').on('click','.recipe-instructions',
     event => {
-        console.log('button clicked');
+       
         const recipeId = getItemIdfromElement(event.currentTarget);
         getRecipeInstructions(recipeId);
-        console.log(recipeId);
+        
     });
 }
 
@@ -75,8 +75,7 @@ function watchRecipeClick() {
 
 
 function displayRecipeOptions(responseJson) {
-    console.log('displayRecipeOptions ran');
-    console.log(responseJson)
+   
     $('#results-list').empty();
     for (let i = 0; i < responseJson.results.length; i++) {
         $('#results-list').append(
@@ -106,7 +105,7 @@ function formatIntolerances(intolerances) {
     const intolerancesParam = intolerances.map((int,i) => 
         `intolerances=${intolerances[i]}`);
         return intolerancesParam.join('&');
-        console.log(intolerancesParam);
+       
 }
 
 // Puts parameters into object
@@ -122,7 +121,7 @@ function getRecipes(cuisine, diet, intolerances) {
 
     const aggregatedString = `?cuisine=${cuisine}&diet=${diet}&type=main-course&offset=${offsetTwo}&` + queryString;
     const url = searchURL + aggregatedString + `&number=3&apiKey=${apiKey}`;
-    console.log(url);
+   
 
 
     fetch(url)
@@ -139,7 +138,7 @@ function getRecipes(cuisine, diet, intolerances) {
 
     })
     .catch(err => {
-        console.log(err);
+      
       $('#js-error-message').text(`Something went wrong: ${err.message}`);
     });
     $('#form').toggleClass('hidden');
