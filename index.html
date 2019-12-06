@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="main.css">
-    <link href="<link href="https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap" rel="stylesheet">" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Bebas+Neue&display=swap" rel="stylesheet">
     <title>Feed Me!</title>
 </head>
 <body>
@@ -21,7 +22,8 @@
            
             <div class="selector">
                 <label for="cuisine">What type of cuisine would you like to eat?</label>
-                <select id="cuisine" class="dropdown" name="cuisine" placeholder="Select one" required>
+                <select id="cuisine" class="dropdown" name="cuisine" required>
+                    <option value="">Please select an option</option>
                     <option value="italian">Italian</option>
                     <option value="japanese">Japanese</option>
                     <option value="indian">Indian</option>
@@ -39,7 +41,8 @@
             
             <div class="selector">
                 <label for="Diet">Do you have any dietary restrictions?</label>
-                <select id="diet" class="dropdown" name="cuisine" placeholder="Select one">
+                <select id="diet" class="dropdown" name="cuisine">
+                    <option value="">Please select an option</option>
                     <option value="">None</option>
                     <option value="gluten">Gluten free</option>
                     <option value="ketogenic">Keto Diet</option>
@@ -51,7 +54,7 @@
 
             <div class="selector">
                 <label for="Intolerances">Do you have any Intolerances?</label>
-                <select id="intolerances" class="dropdown" name="cuisine" placeholder="Select one" multiple>
+                <select id="intolerances" class="dropdown" name="cuisine" multiple>
                         <option value="">None</option>
                         <option value="dairy">Dairy</option>
                         <option value="peanut">Peanuts</option>
